@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+">
+
+    <!--default scope is scope="singleton" -->
+    <bean id="game" class="com.jacklab.spring.scope.OnlineGame" 
+          p:ctrlNumber="123" p:gameName="LottoMax" p:gameType="online" >
+    </bean>
+
+    <!--scope="prototype" not singleton
+        instance will not be created during initialization, rather on request
+    -->
+    <bean id="game2" class="com.jacklab.spring.scope.OnlineGame" scope="prototype"
+          p:ctrlNumber="123" p:gameName="LottoMax" p:gameType="online" >
+    </bean>
+
+
+</beans>
