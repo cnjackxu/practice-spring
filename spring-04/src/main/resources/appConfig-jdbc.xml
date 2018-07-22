@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+">
+
+    <context:component-scan base-package="com.jacklab.spring.jdbc"/>
+    
+    <!--enable properties scan-->
+    <context:property-placeholder location="classpath:ds.properties"/>
+        
+    <!--config data source-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="user" value="${mysql.user}"></property>
+        <property name="password" value="${mysql.password}"></property>
+        <property name="driverClass" value="${mysql.driverClass}"></property>
+        <property name="jdbcUrl" value="${mysql.jdbcUrl}"></property>
+        <property name="initialPoolSize" value="${jdbc.initPoolSize}"></property>
+        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"></property>
+    </bean>
+    
+    <!-- jdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    
+    <!-- Alternative: using this config if jdbcTemplate/dataSource not explicitly injected in class   -->  
+    <bean id="gameDAO" class="com.jacklab.spring.jdbc.dao.GameDAO">
+        <!-- propery jdbcTemplate was not defined in class but inherited from super class-->
+        <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+    </bean>
+   
+    
+    <!-- NamedJdbcTemplate -->
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+        <constructor-arg ref="dataSource"></constructor-arg>
+    </bean>
+    
+    
+   
+</beans>
