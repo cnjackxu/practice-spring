@@ -1,0 +1,16 @@
+server:
+  port: 8088
+
+
+#onlineGame:
+#  gameName: LottoMax
+#  gameID: 123
+#  isActive: true
+#  issueDate: 2018-01-01
+#  params: {p1: aaa,p2: bbb}
+#  encore:
+#    - maxmillion1
+#    - maxmillion2
+#  user:
+#    userName: jack
+#    isActive: true

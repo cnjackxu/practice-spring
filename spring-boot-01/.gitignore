@@ -1,12 +1,5 @@
-/springmvc-01/target/
-/spring-01/nbproject/
-/spring-01/target/
-/spring-02/nbproject/
-/spring-02/target/
-/spring-03/target/
-/spring-03/nbproject/
-/spring-04/nbproject/
-/spring-04/target/
+/target/
+!.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
