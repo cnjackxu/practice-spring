@@ -16,7 +16,7 @@ public class MyController {
 		return "hello~";
 	}
 	
-	// No @ResponseBody
+	// Don't use @ResponseBody
 	@RequestMapping("/success")
 	public String success(Map<String,Object> param) {
 		param.put("name", "<b>Jack Xu</b>");
