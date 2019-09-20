@@ -1,0 +1,57 @@
+package com.jacklab.sb02.entities;
+
+import java.util.Date;
+
+public class Employee {
+
+	private Integer id;
+	private String name;
+	private String email;
+	private Date updateTime;
+	
+	
+	public Employee(Integer id, String name, String email,Date updTime) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.updateTime=updTime;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	public Date getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", updateTime=" + updateTime + "]";
+	}
+
+	
+	
+	
+	
+}

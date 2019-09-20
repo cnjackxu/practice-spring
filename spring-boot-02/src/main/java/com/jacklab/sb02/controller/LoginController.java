@@ -18,7 +18,7 @@ public class LoginController {
 						Map<String, Object> ret,
 						HttpSession session) {
 		System.out.println("==============>username:"+userName+", password:"+password);
-		if(!StringUtils.isEmpty(userName) && "12345".equals(password)) {
+		if(!StringUtils.isEmpty(userName) && "123".equals(password)) {
 			session.setAttribute("loginUser", userName);
 			return "redirect:/main.html";
 		}

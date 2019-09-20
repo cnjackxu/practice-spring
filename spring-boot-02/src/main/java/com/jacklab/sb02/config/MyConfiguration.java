@@ -28,13 +28,16 @@ public class MyConfiguration extends WebMvcConfigurerAdapter{
 				registry.addViewController("/").setViewName("signin");
 				registry.addViewController("/index.html").setViewName("signin");
 				registry.addViewController("/main.html").setViewName("dashboard");
+				registry.addViewController("/add.html").setViewName("add");
+				
 			}
 			
 			@Override
 			public void addInterceptors(InterceptorRegistry registry) {
 				registry.addInterceptor(new LoginIntercepter())
 					.addPathPatterns("/**")
-					.excludePathPatterns("/index.html","/","/user/login");
+					.excludePathPatterns("/index.html","/","/user/login"
+							);
 			}
 		};
 		return adapter;
